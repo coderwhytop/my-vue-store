@@ -52,10 +52,14 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref, computed } from "vue"
 import Item from "@/views/apply/components/Item.vue"
 import { useContext } from "@/utils/hooks"
+
+interface IProps {
+  // checkList:
+}
 
 const $props = defineProps({
   checkList: {

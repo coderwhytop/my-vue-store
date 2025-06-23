@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import List from "./components/List.vue"
 import { computed, ref } from "vue"
 import { fetchList } from "@/views/apply/data"
@@ -13,15 +13,15 @@ import { useCreateContext } from "@/utils/hooks"
 
 const list = ref([])
 const loading = ref(false)
-const checkList = computed(() => list.value.filter(item => item.checked))
+const checkList = computed(() => list.value.filter((item) => item.checked))
 useCreateContext(list)
 
-const getList = async function() {
+const getList = async function () {
   loading.value = true
   list.value = await fetchList().finally(() => {
     loading.value = false
   })
-  list.value.map(item => (item.checked = false))
+  list.value.map((item) => (item.checked = false))
 }
 
 getList()

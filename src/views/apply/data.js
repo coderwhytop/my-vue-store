@@ -1,7 +1,7 @@
 import { simpleNanoid } from "@/utils/help"
 
 export function fetchList() {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       const list = []
       for (let i = 0; i < 16; i++) {
