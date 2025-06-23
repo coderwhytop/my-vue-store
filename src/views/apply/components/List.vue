@@ -56,19 +56,15 @@
 import { ref, computed } from "vue"
 import Item from "@/views/apply/components/Item.vue"
 import { useContext } from "@/utils/hooks"
+import type { ApplyList } from "@/types/apply"
 
 interface IProps {
-  // checkList:
+  checkList: ApplyList
 }
 
-const $props = defineProps({
-  checkList: {
-    type: Array,
-    required: true
-  }
-})
-const list = useContext()
-const checkList = computed(() => $props.checkList)
+const props = defineProps<IProps>()
+const list = useContext<ApplyList>()
+const checkList = computed(() => props.checkList)
 const drawer = ref(false)
 </script>
 

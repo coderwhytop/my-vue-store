@@ -19,12 +19,11 @@
 </template>
 
 <script lang="ts" setup>
-defineProps({
-  item: {
-    required: true,
-    type: Object
-  }
-})
+import type { IApplyItem } from "@/types/apply"
+
+defineProps<{
+  item: IApplyItem
+}>()
 </script>
 <style lang="scss" scoped>
 .top {
