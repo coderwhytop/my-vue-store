@@ -1,15 +1,14 @@
 // src/views/apply/data.ts
-import { simpleNanoid } from "@/utils/help"
-import type { IApplyItem, ApplyList } from "@/types/apply"
+import type { ApplyList } from "@/types/apply"
 import Img from '@/assets/images/borrow/prod.png'
 
 export function fetchList(): Promise<ApplyList> {
   return new Promise((resolve) => {
     setTimeout(() => {
       const list: ApplyList = []
-      for (let i = 0; i < 16; i++) {
+      for (let i = 0; i < 10; i++) {
         list.push({
-          id: simpleNanoid(),
+          id: `${i}`,
           title: `大班桌${i}`,
           icon: Img,
           checked: false,

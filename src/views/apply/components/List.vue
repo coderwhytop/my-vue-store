@@ -2,7 +2,7 @@
   <div>
     <div class="list wrapper flex-wrap">
       <Item
-        @click.native="item.checked = !item.checked"
+        @click.native="() => onCheck(item)"
         class="item pointer"
         :item="item"
         v-for="item in list"
@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <el-drawer title="已勾选物资" :visible.sync="drawer" direction="rtl">
+    <el-drawer title="已勾选物资"  v-model="drawer" direction="rtl">
       <div class="drawer-list">
         <div v-for="item in checkList" class="align-center item">
           <div class="left">
@@ -56,8 +56,9 @@
 import { ref, computed } from "vue"
 import Item from "@/views/apply/components/Item.vue"
 import { useContext } from "@/utils/hooks"
-import type { ApplyList } from "@/types/apply"
+import type { ApplyList, IApplyItem } from "@/types/apply"
 import CartImg from '@/assets/images/borrow/cart.png'
+import { useApplyStore } from '@/store/apply'
 
 interface IProps {
   checkList: ApplyList
@@ -65,8 +66,24 @@ interface IProps {
 
 const props = defineProps<IProps>()
 const list = useContext<ApplyList>()
-const checkList = computed(() => props.checkList)
 const drawer = ref(false)
+const applyStore = useApplyStore()
+
+function onCheck(item: IApplyItem) {
+  item.checked = !item.checked
+  applyStore.updateCheckedItems(item)
+  console.log(item, list.value,'aaa')
+}
+
+// 加载本地存储的数据
+applyStore.loadFromLocalStorage()
+
+// 计算属性，合并props中的checkList和store中的checkedItems
+const checkList = computed(() => {
+  // 这里可以根据需要实现更复杂的合并逻辑
+  return [...props.checkList, ...applyStore.checkedItems]
+})
+
 </script>
 
 <style lang="scss" scoped>

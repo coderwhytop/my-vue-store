@@ -10,10 +10,11 @@ import List from "./components/List.vue"
 import { computed, ref } from "vue"
 import { fetchList } from "@/views/apply/data"
 import { useCreateContext } from "@/utils/hooks"
+import type { ApplyList } from "@/types/apply"
 
 const list = ref([])
 const loading = ref(false)
-const checkList = computed(() => list.value.filter((item) => item.checked))
+const checkList = computed<ApplyList>(() => list.value.filter((item) => item.checked))
 useCreateContext(list)
 
 const getList = async function () {

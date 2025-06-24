@@ -1,5 +1,5 @@
 // types/apply.d.ts
-declare interface IApplyItem {
+export interface IApplyItem {
   id: string
   title: string
   icon: string
@@ -9,4 +9,4 @@ declare interface IApplyItem {
   storeNum: number
 }
 
-declare type ApplyList = IApplyItem[]
+export type ApplyList = IApplyItem[]
