@@ -1,9 +1,13 @@
 import { defineStore } from 'pinia'
-import type {  IApplyItem } from '@/types/apply'
+import type {  IApplyItem } from "@/types/apply.type"
+
+interface IApplyState {
+  checkedItems: IApplyItem[]
+}
 
 const key = 'checkedApplyItems'
 export const useApplyStore = defineStore('apply', {
-  state: function () {
+  state: function (): IApplyState {
    const data = localStorage.getItem(key) || JSON.stringify([]) as string
     return {
      checkedItems: JSON.parse(data)

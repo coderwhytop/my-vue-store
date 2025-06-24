@@ -40,6 +40,7 @@
     "vue-tsc": "^1.8.0"
   },
   "lint-staged": {
-    "**/*.{js,ts,json,vue}": "prettier --write ."
+    "**/*.{js,ts,json,vue}": "prettier --write .",
+    "**/*.{js,ts,vue}": "eslint --fix"
   }
 }

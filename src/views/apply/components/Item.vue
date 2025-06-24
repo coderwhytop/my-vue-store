@@ -1,28 +1,28 @@
 <template>
   <div>
     <div class="top">
-      <img class="icon" :src="item.icon" />
-      <div class="title">{{ item.title }}</div>
-      <input v-model="item.checked" type="checkbox" class="checkboxs" />
+      <img class="icon" :src="data.icon" />
+      <div class="title">{{ data.title }}</div>
+      <input v-model="data.checked" type="checkbox" class="checkboxs" />
     </div>
     <div class="bottom">
       <div class="row">
         <span class="label">资产分类：</span>
-        <span class="value">{{ item.cate }}</span>
+        <span class="value">{{ data.id }}</span>
       </div>
-      <div class="row">
-        <span class="label">购置时间：</span>
-        <span class="value">{{ item.date }}</span>
-      </div>
+<!--      <div class="row">-->
+<!--        <span class="label">购置时间：</span>-->
+<!--        <span class="value">{{ item.date }}</span>-->
+<!--      </div>-->
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import type { IApplyItem } from "@/types/apply"
+import type { IApplyItem } from "@/types/apply.type"
 
 defineProps<{
-  item: IApplyItem
+  data: IApplyItem
 }>()
 </script>
 <style lang="scss" scoped>

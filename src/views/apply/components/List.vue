@@ -4,86 +4,33 @@
       <Item
         @click.native="() => onCheck(item)"
         class="item pointer"
-        :item="item"
+        :data="item"
         v-for="item in list"
+        :key="item.id"
       />
     </div>
-
-    <div class="fixed-bottom justify-end">
-      <div class="align-center">
-        <div class="content">
-          <div class="icon-wrapper pointer" @click="drawer = true">
-            <img
-              class="icon"
-              :src="CartImg"
-            />
-          </div>
-          <div class="radius flex-center" v-if="checkList.length">
-            {{ checkList.length > 99 ? "99" : checkList.length }}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <el-drawer title="已勾选物资"  v-model="drawer" direction="rtl">
-      <div class="drawer-list">
-        <div v-for="item in checkList" class="align-center item">
-          <div class="left">
-            <img class="icon" :src="item.icon" />
-          </div>
-          <div class="right">
-            <div class="top">
-              <span class="label">库存数量：</span>
-              <span class="value">{{ item.storeNum }}件</span>
-            </div>
-            <div class="bottom">
-              <span class="label">库存数量：</span>
-              <el-input-number
-                v-model="item.storeNum"
-                controls-position="right"
-                :min="1"
-                :max="3"
-              ></el-input-number>
-            </div>
-          </div>
-        </div>
-      </div>
-    </el-drawer>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from "vue"
 import Item from "@/views/apply/components/Item.vue"
-import { useContext } from "@/utils/hooks"
-import type { ApplyList, IApplyItem } from "@/types/apply"
-import CartImg from '@/assets/images/borrow/cart.png'
-import { useApplyStore } from '@/store/apply'
+import type { IApplyList, IApplyItem } from "@/types/apply.type"
+import { useApplyStore } from "@/store/apply.store"
 
 interface IProps {
-  checkList: ApplyList
+  list: IApplyList
 }
 
-const props = defineProps<IProps>()
-const list = useContext<ApplyList>()
-const drawer = ref(false)
+ defineProps<IProps>()
 const applyStore = useApplyStore()
 
 function onCheck(item: IApplyItem) {
   item.checked = !item.checked
   applyStore.updateCheckedItems(item)
-  console.log(item, list.value,'aaa')
 }
 
 // 加载本地存储的数据
 applyStore.loadFromLocalStorage()
-
-// 计算属性，合并props中的checkList和store中的checkedItems
-const checkList = computed(() => {
-  // 这里可以根据需要实现更复杂的合并逻辑
-  return [...props.checkList, ...applyStore.checkedItems]
-})
-
 </script>
 
 <style lang="scss" scoped>
