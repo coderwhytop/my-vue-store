@@ -1,7 +1,6 @@
 import { defineConfig } from "vite"
 import vue from "@vitejs/plugin-vue"
 import path from "path" // 需要安装 @types/node
-import mkcert from "vite-plugin-mkcert"
 
 export default defineConfig({
   plugins: [vue()],

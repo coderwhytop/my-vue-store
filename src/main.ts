@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import '@/assets/css/public.css'
-import store from './store'
+import { createPinia } from 'pinia'
 
 // 导入组件库
 import ElementUI from 'element-plus'  // Changed from 'element-ui'
@@ -15,8 +15,8 @@ const app = createApp(App)
 app.use(ElementUI, {
   size: "small"
 })
-
+const pinia = createPinia()
 app.use(router)
-app.use(store)
+app.use(pinia)
 
 app.mount('#app')

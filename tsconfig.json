@@ -1,28 +1,21 @@
 {
   "compilerOptions": {
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true, // 允许从没有默认导出的模块中默认导入
-    "types": ["node", "vue"], // 确保添加 vue 支持
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    },
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
     "moduleResolution": "Node",
     "strict": true,
     "jsx": "preserve",
-    "isolatedModules": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
-    "skipLibcheck": true,
-    "noEmit": true
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue" // 确保包含 .vue 文件
-  ]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "exclude": ["node_modules"]
 }

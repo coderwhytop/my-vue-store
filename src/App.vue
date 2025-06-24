@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Tabs from "@/components/Tabs/index.vue"
 
 export default {

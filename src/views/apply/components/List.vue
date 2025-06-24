@@ -15,7 +15,7 @@
           <div class="icon-wrapper pointer" @click="drawer = true">
             <img
               class="icon"
-              :src="require('@/assets/images/borrow/cart.png')"
+              :src="CartImg"
             />
           </div>
           <div class="radius flex-center" v-if="checkList.length">
@@ -57,6 +57,7 @@ import { ref, computed } from "vue"
 import Item from "@/views/apply/components/Item.vue"
 import { useContext } from "@/utils/hooks"
 import type { ApplyList } from "@/types/apply"
+import CartImg from '@/assets/images/borrow/cart.png'
 
 interface IProps {
   checkList: ApplyList
