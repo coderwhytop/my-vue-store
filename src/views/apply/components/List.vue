@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="list wrapper flex-wrap">
+    <div v-if="list.length" class="list wrapper flex-wrap">
       <Item
         @click.native="() => onCheck(item)"
         class="item pointer"
@@ -9,6 +9,7 @@
         :key="item.id"
       />
     </div>
+    <h1 v-else>暂无数据</h1>
   </div>
 </template>
 
@@ -21,7 +22,7 @@ interface IProps {
   list: IApplyList
 }
 
- defineProps<IProps>()
+defineProps<IProps>()
 const applyStore = useApplyStore()
 
 function onCheck(item: IApplyItem) {
@@ -116,7 +117,7 @@ applyStore.loadFromLocalStorage()
 .list {
   .item {
     width: 200px;
-    height: 340px;
+    height: 300px;
     margin-right: 50px;
   }
 }

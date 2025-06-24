@@ -1,13 +1,13 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import '@/assets/css/public.css'
-import { createPinia } from 'pinia'
+import { createApp } from "vue"
+import App from "./App.vue"
+import router from "./router"
+import "@/assets/css/flex.css"
+import { createPinia } from "pinia"
 
 // 导入组件库
-import ElementUI from 'element-plus'  // Changed from 'element-ui'
+import ElementUI from "element-plus" // Changed from 'element-ui'
 // 导入组件相关样式
-import 'element-plus/dist/index.css'  // Changed path
+import "element-plus/dist/index.css" // Changed path
 
 const app = createApp(App)
 
@@ -19,4 +19,4 @@ const pinia = createPinia()
 app.use(router)
 app.use(pinia)
 
-app.mount('#app')
+app.mount("#app")

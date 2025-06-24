@@ -17,15 +17,18 @@
 </template>
 
 <script>
-import router from "@/router";
+import router from "@/router"
 
-const routes = router.getRoutes().map((item) => {
-  return {
-    name: item.path,
-    label: item.meta?.title
-  }
-}).filter((item) => item.name !== '/');
-const tabs = routes.slice(0, routes.length - 2);
+const routes = router
+  .getRoutes()
+  .map((item) => {
+    return {
+      name: item.path,
+      label: item.meta?.title
+    }
+  })
+  .filter((item) => item.name !== "/")
+const tabs = routes.slice(0, routes.length - 2)
 export default {
   data() {
     return {
@@ -36,7 +39,7 @@ export default {
   watch: {
     $route: {
       handler(route) {
-        const item = this.tabs.filter(item => item.name === route.path)[0]
+        const item = this.tabs.filter((item) => item.name === route.path)[0]
         this.active = item?.name || tabs[0].name
       },
       immediate: true,

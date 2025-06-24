@@ -1,6 +1,6 @@
 // src/views/apply/data.ts
 import type { IApplyList } from "@/types/apply.type"
-import Img from '@/assets/images/borrow/prod.png'
+import Img from "@/assets/images/borrow/prod.png"
 
 export function fetchList(): Promise<IApplyList> {
   return new Promise((resolve) => {
@@ -8,10 +8,10 @@ export function fetchList(): Promise<IApplyList> {
       const list: IApplyList = []
       for (let i = 0; i < 10; i++) {
         list.push({
-          id: `${i}`,
+          id: i,
           title: `大班桌${i}`,
           icon: Img,
-          checked: false,
+          checked: false
         })
       }
       resolve(list)

@@ -10,10 +10,10 @@
         <span class="label">资产分类：</span>
         <span class="value">{{ data.id }}</span>
       </div>
-<!--      <div class="row">-->
-<!--        <span class="label">购置时间：</span>-->
-<!--        <span class="value">{{ item.date }}</span>-->
-<!--      </div>-->
+      <!--      <div class="row">-->
+      <!--        <span class="label">购置时间：</span>-->
+      <!--        <span class="value">{{ item.date }}</span>-->
+      <!--      </div>-->
     </div>
   </div>
 </template>

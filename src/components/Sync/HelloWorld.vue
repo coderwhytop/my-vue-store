@@ -17,7 +17,7 @@ export default {
     msg: String
   },
   mounted() {
-    axios.get("https://ydpms.yslpms.com").then(res => {
+    axios.get("https://ydpms.yslpms.com").then((res) => {
       console.log(res.statusText, "res")
     })
   }
