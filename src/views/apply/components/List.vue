@@ -21,7 +21,7 @@ import { useApplyStore } from "@/store/apply.store"
 interface IProps {
   list: IApplyList
 }
-
+var obj =    {}
 defineProps<IProps>()
 const applyStore = useApplyStore()
 
