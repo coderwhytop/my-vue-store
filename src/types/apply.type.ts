@@ -1,6 +1,6 @@
 // types/apply.d.ts
 export interface IApplyItem {
-  id: string
+  id: number
   title: string
   icon: string
   checked: boolean

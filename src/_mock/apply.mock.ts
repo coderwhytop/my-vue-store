@@ -1,4 +1,3 @@
-// src/views/apply/data.ts
 import type { IApplyList } from "@/types/apply.type"
 import Img from "@/assets/images/borrow/prod.png"
 
@@ -15,6 +14,6 @@ export function fetchList(): Promise<IApplyList> {
         })
       }
       resolve(list)
-    }, 1000)
+    }, 300)
   })
 }

@@ -9,7 +9,7 @@ const routes: Array<RouteRecordRaw> = [
     path: "/apply/All",
     component: () => import("@/views/apply/All.vue"),
     meta: {
-      title: "全部"
+      title: "全部数据"
     }
   },
   {

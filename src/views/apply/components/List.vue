@@ -16,12 +16,11 @@
 <script lang="ts" setup>
 import Item from "@/views/apply/components/Item.vue"
 import type { IApplyList, IApplyItem } from "@/types/apply.type"
-import { useApplyStore } from "@/store/apply.store"
+import { useApplyStore } from "@/store/apply.myStore"
 
 interface IProps {
   list: IApplyList
 }
-var obj =    {}
 defineProps<IProps>()
 const applyStore = useApplyStore()
 
