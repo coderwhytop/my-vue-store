@@ -1,4 +1,4 @@
-import { reactive, readonly, watchEffect } from 'vue'
+import { reactive, readonly, watchEffect } from "vue"
 import type { IApplyItem } from "@/types/apply.type"
 
 const key = "checkedApplyItems"
@@ -11,7 +11,7 @@ interface IApplyState {
 function createStore() {
   // 1. 定义状态
   const state: IApplyState = reactive({
-    checkedItems: JSON.parse(localStorage.getItem(key) || '[]')
+    checkedItems: JSON.parse(localStorage.getItem(key) || "[]")
   })
 
   // 2. 定义 actions
