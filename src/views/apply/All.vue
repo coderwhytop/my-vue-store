@@ -21,7 +21,7 @@ const getList = async () => {
   try {
     list.value = await fetchList()
     // 初始化时从store加载勾选状态
-    applyStore.state.checkedItems.forEach((storeItem) => {
+    applyStore.checkedItems.forEach((storeItem) => {
       const item = list.value.find((i) => i.id === storeItem.id)
       if (item) {
         item.checked = true

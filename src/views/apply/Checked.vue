@@ -8,14 +8,20 @@
 <script lang="ts" setup>
 import List from "./components/List.vue"
 import { useApplyStore } from "@/store/apply.myStore"
-import { ref } from "vue"
+import { ref, watch } from "vue"
 import { IApplyList } from "@/types/apply.type"
 
 const applyStore = useApplyStore()
 
-const list = ref<IApplyList>(
-  applyStore.state.checkedItems.filter((item) => item.checked) as IApplyList
+const list = ref<IApplyList>([])
+
+watch(
+  applyStore.checkedItems,
+  (arr) => {
+    list.value = arr.filter((item) => item.checked)
+  },
+  { immediate: true, deep: true }
 )
-console.log(list.value, "fff")
+
 const loading = ref(false)
 </script>
