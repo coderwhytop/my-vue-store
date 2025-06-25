@@ -20,9 +20,7 @@ export const useApplyStore = createStore<IState, IActions>(() => {
   const actions: IActions = {
     updateCheckedItems(item: IApplyItem) {
       if (!state.checkedItems) state.checkedItems = []
-      const findIndex = state.checkedItems.findIndex(
-        (i) => i.id === item.id
-      )
+      const findIndex = state.checkedItems.findIndex((i) => i.id === item.id)
       findIndex > -1 && state.checkedItems.splice(findIndex, 1)
       item.checked && state.checkedItems.push(item)
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state.checkedItems))
